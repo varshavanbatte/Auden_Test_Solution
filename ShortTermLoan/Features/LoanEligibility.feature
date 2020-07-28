@@ -9,6 +9,7 @@ Scenario: User should be able to select loan amount other than default and Repay
 	And user verifies minimum amount of loan slider is "200"
 	And user verifies maximum amount of loan slider is "500"
 	And user selects "250" on loan calculator slider
+	And user verifies "£250" is displayed on loan amount
 	When user taps "8" button on loan calculator schedule
 	And user swipes down
 	Then user sees "Friday 7 Aug 2020" under First repayment

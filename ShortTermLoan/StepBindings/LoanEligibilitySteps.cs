@@ -62,11 +62,17 @@ namespace ShortTermLoan.StepBindings
 
             Assert.AreEqual(loanAmount, selectedloanAmount);           
         }
-        
+
+        [Given(@"user verifies ""(.*)"" is displayed on loan amount")]
+        public void GivenUserVerifiesIsDisplayedOnLoanAmount(string loanAmount)
+        {
+            IWebElement slider = chromeDriver.FindElementByXPath("/html/body/div/div/div/div[1]/div/div[2]/div[1]/section[1]/header/div[2]/span");
+            Assert.AreEqual(loanAmount, slider.Text);
+        }
+
         [When(@"user taps ""(.*)"" button on loan calculator schedule")]
         public void WhenUserTapsButtonOnLoanCalculatorSchedule(int date)
         {
-            Thread.Sleep(3000);
             IWebElement dateSelector = chromeDriver.FindElementsByClassName("date-selector__date")[date-1];
             dateSelector.Click();
         }
